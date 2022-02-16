@@ -12,7 +12,7 @@ author_email = __import__('project').__email__
 if os.path.exists('README.md'):
     long_description = codecs.open('README.md', 'r', 'utf-8').read()
 else:
-    long_description = '{{cookiecutter.project_short_description}}'
+    long_description = 'Python Boilerplate contains all the boilerplate you need to create a Python package.'
 
 setup(
     name="MS-Scaffold",

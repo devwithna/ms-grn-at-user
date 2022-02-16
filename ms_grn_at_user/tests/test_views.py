@@ -18,32 +18,20 @@ class ProjectTestCase(unittest.TestCase):
 
     def tearDown(self):
         pass  # os.unlink(self.app.config['DATABASE'])
-
-    {%- if cookiecutter.application_root != '/' %}
     def test_home(self):
         response = self.client.get('/')
         self.assertEqual(404, response.status_code)
-    {% endif -%}
-    
     def test_healthcheck(self):
         response = self.client.get('/healthcheck')
         self.assertEqual(200, response.status_code)
 
     def test_list_view(self):
-        {%- if cookiecutter.application_root != '/' %}
-        response = self.client.get('{{ cookiecutter.application_root }}/')
-        {%- elif cookiecutter.application_root == '/' %}
-        response = self.client.get('/')
-        {% endif %}
+        response = self.client.get('/ms_grn_at_user/')
         self.assertEqual(200, response.status_code)
 
     def test_create_view(self):
         name = "blue"
-        {% if cookiecutter.application_root != '/' -%}
-        response = self.client.post('{{ cookiecutter.application_root }}/',
-        {%- elif cookiecutter.application_root == '/' %}
-        response = self.client.post('/',
-        {% endif %}
+        response = self.client.post('/ms_grn_at_user/',
                                     data=json.dumps(dict(name=name)),
                                     content_type='application/json'
                                     )

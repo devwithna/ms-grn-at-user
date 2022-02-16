@@ -1,9 +1,9 @@
 ---
 swagger: "2.0"
 info:
-  description: "This is a sample server {{cookiecutter.project_name}} server."
+  description: "This is a sample server ms-grn-at-user server."
   version: "1.0.0"
-  title: "Swagger {{cookiecutter.project_name}}"
+  title: "Swagger ms-grn-at-user"
   termsOfService: "http://swagger.io/terms/"
   contact:
     email: "apiteam@swagger.io"
@@ -11,13 +11,13 @@ info:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 tags:
-- name: "{{cookiecutter.project_name}}"
-  description: "Everything about your {{cookiecutter.project_name}}"
+- name: "ms-grn-at-user"
+  description: "Everything about your ms-grn-at-user"
   externalDocs:
     description: "Find out more"
     url: "http://swagger.io"
 - name: "store"
-  description: "Example endpoint  list of {{cookiecutter.project_name}}"
+  description: "Example endpoint  list of ms-grn-at-user"
 - name: "user"
   description: "Operations about user"
   externalDocs:

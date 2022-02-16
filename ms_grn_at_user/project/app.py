@@ -2,23 +2,16 @@ import logging
 import logging.config
 
 from pyms.flask.app import Microservice
-{% if cookiecutter.create_model_class == 'y' -%}
 from project.models.init_db import db
-{% endif -%}
-{% if cookiecutter.microservice_with_swagger_and_connexion != 'y' -%}
-from project.views.views import app_bp
-{% endif %}
+
 
 class MyMicroservice(Microservice):
     def init_libs(self) -> None:
-{% if cookiecutter.create_model_class == 'y' %}
+
         db.init_app(self.application)
         with self.application.test_request_context():
             db.create_all()
-{% endif -%}
-{% if cookiecutter.microservice_with_swagger_and_connexion != 'y' %}
-        self.application.register_blueprint(app_bp, url_prefix='{{ cookiecutter.application_root }}')
-{% endif %}
+
     def init_logger(self) -> None:
         if not self.application.config["DEBUG"]:
             super().init_logger()

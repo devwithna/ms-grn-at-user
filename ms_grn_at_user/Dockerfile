@@ -11,6 +11,7 @@ RUN mkdir $APP_HOME && adduser -S -D -H python
 
 RUN chown -R python $APP_HOME
 WORKDIR $APP_HOME
+RUN pip install --upgrade pip
 RUN pip install pipenv
 COPY Pipfile* /tmp/
 RUN cd /tmp && pipenv lock --requirements > requirements.txt
